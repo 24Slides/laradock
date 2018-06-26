@@ -146,8 +146,14 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+          aliases:
+            - 24slides.local
+            - auth.24slides.local
+        backend:
+          aliases:
+            - 24slides.local
+            - auth.24slides.local
 
 ### Blackfire Container #################################
 
