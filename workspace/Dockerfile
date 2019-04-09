@@ -232,6 +232,7 @@ RUN if [ ${INSTALL_LDAP} = true ]; then \
 ARG INSTALL_IMAP=false
 
 RUN if [ ${INSTALL_IMAP} = true ]; then \
+    apt-get update -yqq && \
     apt-get install -y php${LARADOCK_PHP_VERSION}-imap \
 ;fi
 
@@ -260,7 +261,7 @@ RUN if [ ${INSTALL_XDEBUG} = true ]; then \
     # Load the xdebug extension only with phpunit commands
     apt-get install -y php${LARADOCK_PHP_VERSION}-xdebug && \
     sed -i 's/^;//g' /etc/php/${LARADOCK_PHP_VERSION}/cli/conf.d/20-xdebug.ini && \
-    echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/vendor/bin/phpunit'" >> ~/.bashrc \
+    echo "alias phpunit='php -dzend_extension=xdebug.so ./vendor/bin/phpunit'" >> ~/.bashrc \
 ;fi
 
 # ADD for REMOTE debugging
@@ -883,4 +884,4 @@ RUN apt-get clean && \
     rm /var/log/lastlog /var/log/faillog
 
 # Set default work directory
-WORKDIR /var/www
+WORKDIR /var/www/24slides
