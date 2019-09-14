@@ -410,6 +410,18 @@ services:
       networks:
         - backend
 
+### TimescaleDB ###########################################
+    timescale:
+      image: timescale/timescaledb:latest-pg11
+      volumes:
+        - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+      ports:
+        - "${TIMESCALE_PORT}:5432"
+      environment:
+        - POSTGRES_PASSWORD=${TIMESCALE_PASSWORD}
+      networks:
+        - backend
+
 ### PostgreSQL PostGis ###################################
     postgres-postgis:
       build: ./postgres-postgis
