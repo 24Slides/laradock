@@ -418,6 +418,8 @@ services:
       ports:
         - "${TIMESCALE_PORT}:5432"
       environment:
+        - POSTGRES_DB=${TIMESCALE_DB}
+        - POSTGRES_USER=${TIMESCALE_USER}
         - POSTGRES_PASSWORD=${TIMESCALE_PASSWORD}
       networks:
         - backend
