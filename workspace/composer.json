@@ -1,5 +1,5 @@
 {
     "require": {
-
+        "hirak/prestissimo": "dev-master"
     }
 } 
