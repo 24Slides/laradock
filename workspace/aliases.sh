@@ -75,6 +75,7 @@ alias phpunit="./vendor/bin/phpunit"
 alias pu="phpunit"
 alias puf="phpunit --filter"
 alias pud='phpunit --debug'
+alias pun='NO_RESET= phpunit'
 
 alias cc='codecept'
 alias ccb='codecept build'
