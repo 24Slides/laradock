@@ -485,6 +485,8 @@ services:
       volumes:
         - ${DATA_PATH_HOST}/mysql:/var/lib/mysql
         - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+      cap_add:
+        - SYS_NICE  # CAP_SYS_NICE
       ports:
         - "${MYSQL_PORT}:3306"
       networks:
