@@ -397,6 +397,7 @@ services:
         - "${VARNISH_BACKEND_PORT}:81"
       depends_on:
         - php-fpm
+        - php-worker
       networks:
         frontend:
           aliases:
